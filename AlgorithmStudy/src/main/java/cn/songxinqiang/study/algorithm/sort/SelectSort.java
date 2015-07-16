@@ -19,7 +19,7 @@
  * 创建时间：2015年7月16日--上午11:15:49
  * 作者：阿信sxq 使用Windows平台下的Eclipse(STS)创建<br>
  */
-package cn.songxinqiang.algorithm.sort;
+package cn.songxinqiang.study.algorithm.sort;
 
 import java.util.Arrays;
 
