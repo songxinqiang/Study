@@ -5,12 +5,16 @@
 	<parent>
 		<groupId>cn.songxinqiang</groupId>
 		<artifactId>oss-parent</artifactId>
-		<version>1.2_java8</version>
+		<version>1.4</version>
 	</parent>
 
 	<artifactId>study</artifactId>
 	<version>1.0</version>
 	<packaging>pom</packaging>
+
+	<name>SXQ Study</name>
+	<description>学习相关的代码</description>
+	<url>https://git.oschina.net/songxinqiang/Study.git</url>
 
 	<modules>
 		<module>AlgorithmStudy</module>
@@ -33,9 +37,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@git.oschina.net:songxinqiang/Study.git</connection>
-		<developerConnection>scm:git:git@git.oschina.net:songxinqiang/Study.git</developerConnection>
-		<url>git@git.oschina.net:songxinqiang/Study.git</url>
+		<connection>scm:git:ssh://git@git.oschina.net/songxinqiang/Study.git</connection>
+		<developerConnection>scm:git:ssh://git@git.oschina.net/songxinqiang/Study.git</developerConnection>
+		<url>https://git.oschina.net/songxinqiang/Study.git</url>
 	</scm>
 
 	<dependencies>
