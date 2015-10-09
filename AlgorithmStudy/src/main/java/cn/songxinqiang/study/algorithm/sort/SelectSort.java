@@ -35,37 +35,37 @@ import java.util.Arrays;
  */
 public class SelectSort {
 
-	/**
-	 * 原理：在要排序的一组数中，选出最小的一个数与第一个位置的数交换；
-	 * 然后在剩下的数当中再找最小的与第二个位置的数交换，如此循环到倒数第二个数和最后一个数比较为止。
-	 *
-	 * @author 阿信sxq-2015年7月16日
-	 *
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		int a[] = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 5, 4, 62, 99, 98, 54, 56, 17,
-				18, 23, 34, 15, 35, 25, 53, 51 };
-		int position = 0;
-		for (int i = 0; i < a.length; i++) {
-			//默认的最小的下标
-			position = i;
-			//找出最小的
-			for (int j = i + 1; j < a.length; j++) {
-				if (a[j] < a[position]) {
-					position = j;
-				}
-			}
-			//交换
-			if (position != i) {
-				int temp = a[position];
-				a[position] = a[i];
-				a[i] = temp;
-			}
-		}
+    /**
+     * 原理：在要排序的一组数中，选出最小的一个数与第一个位置的数交换；
+     * 然后在剩下的数当中再找最小的与第二个位置的数交换，如此循环到倒数第二个数和最后一个数比较为止。
+     *
+     * @author 阿信sxq-2015年7月16日
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        int a[] = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 5, 4, 62, 99, 98, 54, 56, 17,
+                18, 23, 34, 15, 35, 25, 53, 51 };
+        int position = 0;
+        for (int i = 0; i < a.length; i++) {
+            //默认的最小的下标
+            position = i;
+            //找出最小的
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] < a[position]) {
+                    position = j;
+                }
+            }
+            //交换
+            if (position != i) {
+                int temp = a[position];
+                a[position] = a[i];
+                a[i] = temp;
+            }
+        }
 
-		System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(a));
 
-	}
+    }
 
 }
