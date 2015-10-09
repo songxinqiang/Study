@@ -39,8 +39,8 @@
     </developers>
 
     <scm>
-        <connection>scm:git:ssh://git@git.oschina.net/songxinqiang/Study.git</connection>
-        <developerConnection>scm:git:ssh://git@git.oschina.net/songxinqiang/Study.git</developerConnection>
+        <connection>scm:git:git@git.oschina.net:songxinqiang/Study.git</connection>
+        <developerConnection>scm:git:git@git.oschina.net:songxinqiang/Study.git</developerConnection>
         <url>https://git.oschina.net/songxinqiang/Study.git</url>
     </scm>
 
