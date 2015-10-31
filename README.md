@@ -1,5 +1,5 @@
 #Study
 
-JFinalStudy--学习JFinal
+学习
 
 AlgorithmStudy--学习算法
