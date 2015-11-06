@@ -8,7 +8,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>mybatis-algorithm</artifactId>
+    <artifactId>study-mybatis</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
