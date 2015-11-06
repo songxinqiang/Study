@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<body>
+#set( $iAm = "good!" )
+#set( $hhh = "good! $iAm" )
+Welcome $name to velocity.com
+today is $date.
+#foreach ($i in $list)
+$i
+#end
+$iAm
+$hhh
+</body>
