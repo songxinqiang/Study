@@ -1,0 +1,7 @@
+#macro(sayHello $name)
+hello $name
+#if($ctl)
+yes
+#end
+#end
+#sayHello("velocity")
