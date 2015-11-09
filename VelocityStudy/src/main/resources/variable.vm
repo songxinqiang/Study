@@ -1,0 +1,21 @@
+#set($person ="hello")
+$person
+
+#set($person = $p2)
+$person
+
+#set($person.name = $p2.name)
+$person
+
+#set($arg = "vvvvvv")
+#set($person.name = $p2.getName($arg))
+$person
+$p2
+
+#set($person = 123)
+$person
+
+#set($person = ["foo",$p2])
+$person
+
+$p2

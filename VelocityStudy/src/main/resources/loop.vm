@@ -1,0 +1,4 @@
+#foreach($str in $list)
+ This is $str
+ $velocityCount
+#end
