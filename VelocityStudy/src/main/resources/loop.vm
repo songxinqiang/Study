@@ -1,4 +1,7 @@
 #foreach($str in $list)
  This is $str
  $velocityCount
+ $foreach.count
+ $foreach.index
+ $foreach.hasNext
 #end

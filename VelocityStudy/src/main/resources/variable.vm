@@ -1,7 +1,7 @@
 #set($person ="hello")
 $person
 
-#set($person = $p2)
+#set($person = '$p2')
 $person
 
 #set($person.name = $p2.name)

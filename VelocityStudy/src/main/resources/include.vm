@@ -1,5 +1,5 @@
-#parse("beIncluded.vm")
+#parse("tt/beIncluded.vm")
 $name
-#include("beIncluded.vm")
+#include("tt/beIncluded.vm")
 
 汉字
