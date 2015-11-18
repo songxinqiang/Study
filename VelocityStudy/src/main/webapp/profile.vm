@@ -1,0 +1,4 @@
+#set($layout ="layout.vm")
+#set($sub="vm/user/sub.vm")
+A: What is your name?<br>
+B: My name is ${user.loginName}!

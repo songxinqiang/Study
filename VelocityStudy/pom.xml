@@ -14,26 +14,162 @@
     <name>Velocity Study</name>
 
     <properties>
+        <version.spring>4.1.8.RELEASE</version.spring>
+        <version.aspectj>1.8.7</version.aspectj>
+        <version.log4j>2.4.1</version.log4j>
+
         <version.velocity>1.7</version.velocity>
+        <version.velocity-tools>2.0</version.velocity-tools>
         <version.commons-lang>2.6</version.commons-lang>
+        <version.commons-collections>3.2.2</version.commons-collections>
+        <version.commons-beanutils>1.9.2</version.commons-beanutils>
+        <version.commons-digester>2.1</version.commons-digester>
+        <version.commons-chain>1.2</version.commons-chain>
+        <version.commons-validator>1.4.1</version.commons-validator>
+        <version.dom4j>1.6.1</version.dom4j>
+        <version.oro>2.0.8</version.oro>
+        <version.sslext>1.10-4</version.sslext>
+        <version.xml-apis>1.4.01</version.xml-apis>
+
+        <version.tomcat>8.0.28</version.tomcat>
+
+        <prop.depScope>provided</prop.depScope>
+        <!-- 
+        <prop.depScope>compile</prop.depScope>
+         -->
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${version.spring}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${version.spring}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${version.spring}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${version.aspectj}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jcl</artifactId>
+            <version>${version.log4j}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${version.log4j}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>
             <version>${version.velocity}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-lang</groupId>
-                    <artifactId>commons-lang</artifactId>
-                </exclusion>
-            </exclusions>
+            <scope>${prop.depScope}</scope>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>${version.commons-lang}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${version.commons-collections}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-tools</artifactId>
+            <version>${version.velocity-tools}</version>
+            <scope>${prop.depScope}</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.struts</groupId>
+                    <artifactId>struts-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.struts</groupId>
+                    <artifactId>struts-taglib</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.struts</groupId>
+                    <artifactId>struts-tiles</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${version.commons-beanutils}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+            <version>${version.commons-digester}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-chain</groupId>
+            <artifactId>commons-chain</artifactId>
+            <version>${version.commons-chain}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>${version.commons-validator}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>${version.dom4j}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>oro</groupId>
+            <artifactId>oro</artifactId>
+            <version>${version.oro}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>sslext</groupId>
+            <artifactId>sslext</artifactId>
+            <version>${version.sslext}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>${version.xml-apis}</version>
+            <scope>${prop.depScope}</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>${version.tomcat}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
