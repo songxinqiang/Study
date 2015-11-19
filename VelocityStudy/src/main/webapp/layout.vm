@@ -1,8 +1,9 @@
+#set($sub="vm/sub.vm")
 <body>
-    <div id="header">#parse('header.vm')</div>
+    <div id="header">#parse('vm/header.vm')</div>
     <div id="content">
         <div id="sub">#parse($sub)</div>
         <div id="main">$screen_content</div>
     </div>
-    <div id="footer">#parse('footer.vm')</div>
+    <div id="footer">#parse('vm/footer.vm')</div>
 </body>

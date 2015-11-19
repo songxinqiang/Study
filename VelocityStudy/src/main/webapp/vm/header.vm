@@ -1,0 +1,5 @@
+head
+$date.get('yyyy-MM-dd HH:mm:ss')
+
+#set($num="0.12979978058145913")
+$NumberTool.format("#0.00",$num) 
