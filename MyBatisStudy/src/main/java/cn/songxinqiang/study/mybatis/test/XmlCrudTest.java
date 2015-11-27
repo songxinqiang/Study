@@ -24,6 +24,8 @@ package cn.songxinqiang.study.mybatis.test;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import cn.songxinqiang.study.mybatis.model.User;
@@ -40,10 +42,21 @@ import cn.songxinqiang.study.mybatis.util.MyBatisUtil;
  */
 public class XmlCrudTest {
 
+    SqlSession sqlSession;
+
+    @Before
+    public void before() {
+        sqlSession = MyBatisUtil.getSqlSession(true);
+    }
+
+    @After
+    public void after() {
+        // 使用SqlSession执行完SQL之后需要关闭SqlSession
+        sqlSession.close();
+    }
+
     @Test
     public void testAdd() {
-        // SqlSession sqlSession = MyBatisUtil.getSqlSession(false);
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
@@ -55,16 +68,11 @@ public class XmlCrudTest {
         user.setAge(20);
         // 执行插入操作
         int retResult = sqlSession.insert(statement, user);
-        // 手动提交事务
-        // sqlSession.commit();
-        // 使用SqlSession执行完SQL之后需要关闭SqlSession
-        sqlSession.close();
         System.out.println(retResult);
     }
 
     @Test
     public void testUpdate() {
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
@@ -77,14 +85,11 @@ public class XmlCrudTest {
         user.setAge(25);
         // 执行修改操作
         int retResult = sqlSession.update(statement, user);
-        // 使用SqlSession执行完SQL之后需要关闭SqlSession
-        sqlSession.close();
         System.out.println(retResult);
     }
 
     @Test
     public void testDelete() {
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
@@ -93,14 +98,11 @@ public class XmlCrudTest {
         String statement = "mapper.userMapper.deleteUser";// 映射sql的标识字符串
         // 执行删除操作
         int retResult = sqlSession.delete(statement, 5);
-        // 使用SqlSession执行完SQL之后需要关闭SqlSession
-        sqlSession.close();
         System.out.println(retResult);
     }
 
     @Test
     public void testGetAll() {
-        SqlSession sqlSession = MyBatisUtil.getSqlSession();
         /**
          * 映射sql的标识字符串，
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
@@ -109,8 +111,6 @@ public class XmlCrudTest {
         String statement = "mapper.userMapper.getAllUsers";// 映射sql的标识字符串
         // 执行查询操作，将查询结果自动封装成List<User>返回
         List<User> lstUsers = sqlSession.selectList(statement);
-        // 使用SqlSession执行完SQL之后需要关闭SqlSession
-        sqlSession.close();
         System.out.println(lstUsers);
     }
 
