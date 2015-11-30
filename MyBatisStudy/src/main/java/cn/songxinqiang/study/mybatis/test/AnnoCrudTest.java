@@ -65,7 +65,6 @@ public class AnnoCrudTest {
         user.setName("用户xdp");
         user.setAge(20);
         int add = mapper.add(user);
-        // 使用SqlSession执行完SQL之后需要关闭SqlSession
         System.out.println(add);
     }
 
