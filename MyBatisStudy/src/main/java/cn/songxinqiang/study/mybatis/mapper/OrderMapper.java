@@ -21,12 +21,16 @@
  */
 package cn.songxinqiang.study.mybatis.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.type.JdbcType;
 
 import cn.songxinqiang.study.mybatis.model.Order;
+import cn.songxinqiang.study.mybatis.sqlprovider.OrderSQLProvider;
 
 /**
  *
@@ -39,7 +43,7 @@ import cn.songxinqiang.study.mybatis.model.Order;
  */
 public interface OrderMapper {
 
-    @Select("select * from orders where order_id=#{id}")
+    @SelectProvider(type = OrderSQLProvider.class, method = "getSql")
     @Results(value = {
             @Result(id = true, property = "id", column = "order_id", javaType = Integer.class,
                     jdbcType = JdbcType.INTEGER),
@@ -47,6 +51,16 @@ public interface OrderMapper {
                     jdbcType = JdbcType.VARCHAR),
             @Result(property = "price", column = "order_price", javaType = Float.class,
                     jdbcType = JdbcType.FLOAT) })
-    public Order getById(int id);
+    public Order getById(@Param("id") int id);
+
+    @SelectProvider(type = OrderSQLProvider.class, method = "getAllSql")
+    @Results(value = {
+            @Result(id = true, property = "id", column = "order_id", javaType = Integer.class,
+                    jdbcType = JdbcType.INTEGER),
+            @Result(property = "orderNo", column = "order_no", javaType = String.class,
+                    jdbcType = JdbcType.VARCHAR),
+            @Result(property = "price", column = "order_price", javaType = Float.class,
+                    jdbcType = JdbcType.FLOAT) })
+    public List<Order> getAll();
 
 }

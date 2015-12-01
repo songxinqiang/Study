@@ -21,6 +21,8 @@
  */
 package cn.songxinqiang.study.mybatis.test;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.junit.After;
 import org.junit.Before;
@@ -96,6 +98,12 @@ public class DifferentName {
     @Test
     public void testAnnoSelect() {
         Order o = sqlSession.getMapper(OrderMapper.class).getById(2);
+        System.out.println(o);
+    }
+
+    @Test
+    public void testAnnoSelectAll() {
+        List<Order> o = sqlSession.getMapper(OrderMapper.class).getAll();
         System.out.println(o);
     }
 }

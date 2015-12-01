@@ -39,45 +39,17 @@ public class OrderSQLProvider {
     private static final String TABLE_NAME = "orders";
 
     public String getSql(Map<String, Object> parameters) {
-        String uid = (String) parameters.get("id");
-        SQL sql = new SQL().SELECT("test_id, test_text").FROM(TABLE_NAME);
+        Integer uid = (Integer) parameters.get("id");
+        SQL sql = new SQL().SELECT("order_id, order_no, order_price").FROM(TABLE_NAME);
         if (uid != null) {
-            sql = sql.WHERE("test_id = #{id,javaType=string,jdbcType=VARCHAR}");
+            sql = sql.WHERE("order_id = #{id}");
         }
         return sql.toString();
     }
 
     public String getAllSql() {
-        SQL sql = new SQL().SELECT("test_id, test_text").FROM(TABLE_NAME);
+        SQL sql = new SQL().SELECT("order_id, order_no, order_price").FROM(TABLE_NAME);
         return sql.toString();
     }
 
-    public String getByTestTextSql(Map<String, Object> parameters) {
-        String tText = (String) parameters.get("testText");
-        SQL sql = new SQL().SELECT("test_id, test_text").FROM(TABLE_NAME);
-        if (tText != null) {
-            sql = sql.WHERE("test_text like #{testText,javaType=string,jdbcType=VARCHAR}");
-        }
-        return sql.toString();
-    }
-
-    public String insertSql() {
-        SQL sql = new SQL().INSERT_INTO(TABLE_NAME)
-                .VALUES("test_id", "#{testBean.id,javaType=string,jdbcType=VARCHAR}")
-                .VALUES("test_text", "#{testBean.testText,javaType=string,jdbcType=VARCHAR}");
-        return sql.toString();
-    }
-
-    public String updateSql() {
-        SQL sql = new SQL().UPDATE(TABLE_NAME)
-                .SET("test_text = #{testBean.testText,javaType=string,jdbcType=VARCHAR}")
-                .WHERE("test_id = #{testBean.id,javaType=string,jdbcType=VARCHAR}");
-        return sql.toString();
-    }
-
-    public String deleteSql() {
-        SQL sql = new SQL().DELETE_FROM(TABLE_NAME).WHERE(
-                "test_id = #{id,javaType=string,jdbcType=VARCHAR}");
-        return sql.toString();
-    }
 }
