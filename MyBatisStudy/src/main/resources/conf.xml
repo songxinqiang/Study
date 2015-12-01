@@ -29,6 +29,7 @@
         <!-- 注册userMapper.xml文件， userMapper.xml位于mapper这个包下，所以resource写成mapper/userMapper.xml -->
         <mapper resource="mapper/userMapper.xml" />
         <mapper resource="mapper/orderMapper.xml" />
+        <mapper resource="mapper/classMapper.xml" />
         <!-- 注册UserMapper映射接口 -->
         <mapper class="cn.songxinqiang.study.mybatis.mapper.UserMapper" />
         <mapper class="cn.songxinqiang.study.mybatis.mapper.OrderMapper" />
