@@ -16,13 +16,12 @@
  * </pre>
  */
 /*
- * 创建时间：2015年12月1日--下午2:23:08
+ * 创建时间：2015年12月1日--下午5:57:58
  * 作者：阿信sxq(songxinqiang@vip.qq.com)
  */
 package cn.songxinqiang.study.mybatis.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  *
@@ -33,22 +32,16 @@ import java.util.List;
  * @author 阿信sxq-2015年12月1日
  *
  */
-public class Classes implements Serializable {
+public class Student implements Serializable {
 
-    private static final long serialVersionUID = -4444234818150660465L;
-
-    // c_id
+    private static final long serialVersionUID = 2072784726086604694L;
+    
     private int id;
-    // c_name
     private String name;
-    // teacher_id
-    private Teacher teacher;
-    private List<Student> students;
 
     @Override
     public String toString() {
-        return "Classes [id=" + id + ", name=" + name + ", teacher=" + teacher + ", students="
-                + students + "]";
+        return "Student [id=" + id + ", name=" + name + "]";
     }
 
     public int getId() {
@@ -59,28 +52,12 @@ public class Classes implements Serializable {
         return name;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
     }
 
 }
