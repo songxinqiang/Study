@@ -29,11 +29,29 @@
 
     <!-- 修改用户(Update) -->
     <update id="updateUser" parameterType="User">
-        update users set name=#{name},age=#{age} where id=#{id}
+        update users set name=#{name},age=#{age} where
+        id=#{id}
     </update>
 
     <!-- 查询全部用户 -->
     <select id="getAllUsers" resultType="User">
         select * from users
     </select>
+    
+    
+    <!-- 
+        查询得到男性或女性的数量, 如果传入的是0就女性否则是男性
+     -->
+    <select id="getUserCount" parameterMap="getUserCountMap" statementType="CALLABLE">
+        CALL ges_user_count(?,?)
+    </select>
+    
+    <!--
+        parameterMap.put("sexid", 0);
+        parameterMap.put("usercount", -1);
+     -->
+    <parameterMap type="java.util.Map" id="getUserCountMap">
+        <parameter property="sexid" mode="IN" jdbcType="INTEGER" />
+        <parameter property="usercount" mode="OUT" jdbcType="INTEGER" />
+    </parameterMap>
 </mapper>

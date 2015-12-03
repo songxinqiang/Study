@@ -1,0 +1,73 @@
+== 存储过程
+
+=== 关于数据库存储过程的说明
+
+参考 http://blog.sina.com.cn/s/blog_52d20fbf0100ofd5.html[MySQL存储过程详解]
+
+存储过程接受三种参数
+
+- IN 输入型，对值的修改不会返回
+- OUT 输出型，用于返回值
+- INOUT 输入输出型，既做输入又是输出
+
+存储过程的调用使用关键字call，修改使用ALTER PROCEDURE，删除使用DROP PROCEDURE
+
+条件控制语句同一般编程没太大差异
+
+有大量内置函数，查看网页上的介绍
+
+
+=== mybatis中调用存储过程
+
+在xml中还是普通的标签，但是多了属性`statementType="CALLABLE"`，
+并且配置单独的parameterMap属性和节点进行参数的配置，使用mode="IN"配置参数的类型
+
+................................
+    <!-- 
+        查询得到男性或女性的数量, 如果传入的是0就女性否则是男性
+     -->
+    <select id="getUserCount" parameterMap="getUserCountMap" statementType="CALLABLE">
+        CALL ges_user_count(?,?)
+    </select>
+    
+    <!--
+        parameterMap.put("sexid", 0);
+        parameterMap.put("usercount", -1);
+     -->
+    <parameterMap type="java.util.Map" id="getUserCountMap">
+        <parameter property="sexid" mode="IN" jdbcType="INTEGER" />
+        <parameter property="usercount" mode="OUT" jdbcType="INTEGER" />
+    </parameterMap>
+................................
+
+在调用的时候和普通的调用没什么较大的区别，只是返回的值是通过从传入的map中获取的，而不是方法的返回值
+
+................................
+    String statement = "mapper.userMapper.getUserCount";// 映射sql的标识字符串
+    Map<String, Integer> parameterMap = new HashMap<String, Integer>();
+    parameterMap.put("sexid", 0);
+    parameterMap.put("usercount", -1);
+    sqlSession.selectOne(statement, parameterMap);
+    Integer result = parameterMap.get("usercount");
+    System.out.println(result);
+................................
+
+对应查询方法的返回值是null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
