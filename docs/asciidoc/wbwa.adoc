@@ -40,13 +40,13 @@ v0.1, 2011-09
 
 :leveloffset: 1
 
-include::1tool_chain.txt[]
-include::2basic.txt[]
-include::3book_eles.txt[]
-include::4grammar.txt[]
-include::5tips.txt[]
-include::6appendix.txt[]
-include::7biblio.txt[]
+include::1tool_chain.adoc[]
+include::2basic.adoc[]
+include::3book_eles.adoc[]
+include::4grammar.adoc[]
+include::5tips.adoc[]
+include::6appendix.adoc[]
+include::7biblio.adoc[]
 
 :leveloffset: 0
 
