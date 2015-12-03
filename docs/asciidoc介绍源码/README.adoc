@@ -1,0 +1,31 @@
+https://github.com/houqp/wbwa
+
+
+Write Books with AsciiDoc
+=========================
+
+Dependencies
+------------
+
+Install AsciiDoc should be enough. 
+
+```bash
+sudo dnf install asciidoc
+sudo dnf install fop
+```
+
+
+Book generation
+---------------
+
+For PDF:
+
+```bash
+$ make pdf
+```
+
+For HTML:
+
+```bash
+$ make html
+```
