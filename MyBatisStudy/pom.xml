@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>study-mybatis</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
