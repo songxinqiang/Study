@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+    <context:component-scan base-package="com.zycoo.pms">
+        <context:exclude-filter type="annotation"
+            expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- md5密码工具 -->
+    <bean id="md5Code" class="cn.songxinqiang.tool.MD5Code" />
+    <!-- 执行系统命令工具 -->
+    <bean id="cmdExec" class="cn.songxinqiang.tool.SystemCmdExec" />
+    <!-- 时间日期格式化工具 -->
+    <bean id="deteFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="MM-dd HH:mm:ss" />
+    </bean>
+
+    <!--数据源配置 -->
+    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <constructor-arg name="poolProperties">
+            <bean id="poolProperties" class="org.apache.tomcat.jdbc.pool.PoolProperties">
+                <property name="url" value="jdbc:mysql://127.0.0.1/coovox_db" />
+                <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+                <property name="username" value="zycoo_coovox" />
+                <property name="password" value="zycoo_coovox_dba" />
+                <property name="maxActive" value="30" />
+                <property name="maxIdle" value="10" />
+                <property name="minIdle" value="10" />
+                <property name="maxWait" value="30000" />
+                <property name="initialSize" value="10" />
+                <property name="testWhileIdle" value="true" />
+                <property name="validationQuery" value="select 1" />
+                <property name="testOnBorrow" value="true" />
+                <property name="testOnReturn" value="false" />
+                <property name="removeAbandoned" value="true" />
+                <property name="removeAbandonedTimeout" value="120" />
+                <property name="logAbandoned" value="true" />
+                <property name="timeBetweenEvictionRunsMillis" value="30000" />
+                <property name="numTestsPerEvictionRun" value="30" />
+                <property name="minEvictableIdleTimeMillis" value="1800000" />
+                <property name="jdbcInterceptors"
+                    value="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" />
+                <property name="jmxEnabled" value="true" />
+                <property name="validationInterval" value="30000" />
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!-- mybatis -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- 事务 -->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="count*" read-only="true" />
+            <tx:method name="list*" read-only="true" />
+            <tx:method name="find*" read-only="true" />
+            <tx:method name="is*" read-only="true" />
+            <tx:method name="parse*" read-only="true" />
+            <tx:method name="read*" read-only="true" />
+            <tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="edit*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="*" propagation="REQUIRED" />
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="serviceMethod" expression="execution(* com.zycoo.pms.service..*.*(..))" />
+        <aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
+    </aop:config>
+
+</beans>
