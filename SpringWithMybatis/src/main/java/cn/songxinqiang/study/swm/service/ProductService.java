@@ -16,12 +16,14 @@
  * </pre>
  */
 /*
- * 创建时间：2015年12月7日--下午5:01:27
+ * 创建时间：2015年12月8日--下午2:18:40
  * 作者：阿信sxq(songxinqiang@vip.qq.com)
  */
-package cn.songxinqiang.study.swm.model;
+package cn.songxinqiang.study.swm.service;
 
-import java.io.Serializable;
+import java.util.List;
+
+import cn.songxinqiang.study.swm.model.Product;
 
 /**
  *
@@ -29,39 +31,20 @@ import java.io.Serializable;
  * 众里寻她千百度, 蓦然回首, 那人却在灯火阑珊处.
  * </p>
  *
- * @author 阿信sxq-2015年12月7日
+ * @author 阿信sxq-2015年12月8日
  *
  */
-public class User implements Serializable {
+public interface ProductService {
 
-    private static final long serialVersionUID = 1002390890876579465L;
+    int count();
 
-    private int id;
-    private String name;
-    private String password;
+    List<Product> list();
 
-    public int getId() {
-        return id;
-    }
+    List<Product> list(int start, int size);
 
-    public String getName() {
-        return name;
-    }
+    Product find(int id);
 
-    public String getPassword() {
-        return password;
-    }
+    void add(Product product);
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+    void edit(Product product);
 }

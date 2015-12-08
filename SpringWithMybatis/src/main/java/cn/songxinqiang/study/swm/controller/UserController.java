@@ -16,52 +16,31 @@
  * </pre>
  */
 /*
- * 创建时间：2015年12月7日--下午5:01:27
+ * 创建时间：2015年12月8日--上午10:36:56
  * 作者：阿信sxq(songxinqiang@vip.qq.com)
  */
-package cn.songxinqiang.study.swm.model;
+package cn.songxinqiang.study.swm.controller;
 
-import java.io.Serializable;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
+ * 用户控制器
  *
  * <p>
  * 众里寻她千百度, 蓦然回首, 那人却在灯火阑珊处.
  * </p>
  *
- * @author 阿信sxq-2015年12月7日
+ * @author 阿信sxq-2015年12月8日
  *
  */
-public class User implements Serializable {
+@Controller
+@RequestMapping(value = "/user")
+public class UserController extends BaseController {
 
-    private static final long serialVersionUID = 1002390890876579465L;
-
-    private int id;
-    private String name;
-    private String password;
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    @RequestMapping(value = { "/", "/*" })
+    public String mainPage() {
+        return "user/main";
     }
 
 }

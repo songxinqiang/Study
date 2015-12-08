@@ -36,7 +36,7 @@
         <version.sslext>1.10-4</version.sslext>
         <version.xml-apis>1.4.01</version.xml-apis>
 
-        <version.tomcat>8.0.29</version.tomcat>
+        <version.tomcat>8.0.30</version.tomcat>
         <version.fastjson>1.2.7</version.fastjson>
 
         <prop.depScope>provided</prop.depScope>
@@ -44,7 +44,7 @@
     </properties>
 
     <dependencies>
-    <!-- spring -->
+        <!-- spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>

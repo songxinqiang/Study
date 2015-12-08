@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 产品信息记录的DAO层Mapper -->
+<mapper namespace="cn.songxinqiang.study.swm.mapper.ProductMapper">
+    
+    <!-- 统计全部记录数目 -->
+    <select id="count" resultType="int">
+        select count(*) from t_product
+    </select>
+
+    <!-- 获取全部记录 -->
+    <select id="listAll" resultType="Product">
+        select * from t_product
+    </select>
+    <select id="listByPage" resultType="Product">
+        select * from t_product limit #{start},#{size}
+    </select>
+
+    <!-- 根据ID查找记录 -->
+    <select id="find" parameterType="int" resultType="Product">
+        select * from t_product where id=#{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Product">
+        insert into t_product(name,desc,price) values(#{name,jdbcType=VARCHAR},#{desc,jdbcType=VARCHAR},#{price,jdbcType=DOUBLE})
+    </insert>
+
+    <!-- 更新记录 -->
+    <update id="update" parameterType="Product">
+        update t_product set name=#{name,jdbcType=VARCHAR},desc=#{desc,jdbcType=VARCHAR},price=#{price,jdbcType=DOUBLE} where id=#{id}
+    </update>
+
+</mapper>

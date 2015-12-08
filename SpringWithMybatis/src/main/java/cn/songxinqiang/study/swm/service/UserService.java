@@ -16,14 +16,12 @@
  * </pre>
  */
 /*
- * 创建时间：2015年12月7日--下午5:01:10
+ * 创建时间：2015年12月8日--上午10:49:56
  * 作者：阿信sxq(songxinqiang@vip.qq.com)
  */
-package cn.songxinqiang.study.swm.mapper;
+package cn.songxinqiang.study.swm.service;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 import cn.songxinqiang.study.swm.model.User;
 
@@ -33,53 +31,42 @@ import cn.songxinqiang.study.swm.model.User;
  * 众里寻她千百度, 蓦然回首, 那人却在灯火阑珊处.
  * </p>
  *
- * @author 阿信sxq-2015年12月7日
+ * @author 阿信sxq-2015年12月8日
  *
  */
-public interface UserMapper {
+public interface UserService {
 
     /**
-     * 全部用户
+     * 登陆成功返回用户信息描述对象，失败返回{@code null}
      *
      * @author 阿信sxq-2015年12月8日
      *
-     * @return 全部用户的列表
-     */
-    List<User> listAll();
-
-    /**
-     * 通过用户记录编号获取用户信息
-     *
-     * @author 阿信sxq-2015年12月8日
-     *
-     * @param id
-     *            记录编号
-     * @return 用户信息
-     */
-    User find(@Param("id")int id);
-
-    /**
-     * 通过用户名获取用户信息
-     *
-     * @author 阿信sxq-2015年12月8日
-     *
-     * @param userName
-     *            用户名
-     * @return 用户信息
-     */
-    User getUser(@Param("uname")String userName);
-
-    /**
-     * 统计指定用户名和密码的用户记录数，其中密码是已经经过了MD5处理的
-     *
-     * @author 阿信sxq-2015年12月8日
-     *
-     * @param uname
+     * @param name
      *            用户名
      * @param password
-     *            密码，已采用MD5进行处理
-     * @return 记录的数目
+     *            用户密码
+     * @return 成功返回用户信息，失败返回{@code null}
      */
-    int login(@Param("uname") String uname, @Param("password") String password);
+    public User login(String name, String password);
+
+    /**
+     * 根据用户的用户名获取用户信息描述对象
+     *
+     * @author 阿信sxq-2015年12月8日
+     *
+     * @param name
+     *            用户名
+     * @return 用户信息
+     */
+    public User find(String name);
+
+    /**
+     * 获取用户信息列表
+     *
+     * @author 阿信sxq-2015年12月8日
+     *
+     * @return 用户信息列表
+     */
+    public List<User> list();
 
 }

@@ -1,52 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 用户信息记录的DAO层Mapper -->
 <mapper namespace="cn.songxinqiang.study.swm.mapper.UserMapper">
 
-    <!-- 根据id查询得到一个user对象 -->
-    <select id="getUser" parameterType="int" resultType="User">
-        select * from users where id=#{id}
+    <!-- 根据ID查找记录 -->
+    <select id="find" parameterType="int" resultType="User">
+        select * from t_user where id=#{id}
+    </select>
+    
+    <!-- 根据用户名查找记录 -->
+    <select id="getUser" parameterType="String" resultType="User">
+        select * from t_user where name=#{uname,jdbcType=VARCHAR}
     </select>
 
-    <!-- 查询全部用户 -->
-    <select id="listUser" resultType="User">
-        select * from users
+    <!-- 获取全部记录 -->
+    <select id="listAll" resultType="User">
+        select * from t_user
     </select>
 
-    <!-- 创建用户(Create) -->
-    <insert id="addUser" parameterType="User">
-        insert into users(name,age) values(#{name},#{age})
+    <!-- 插入记录 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="User">
+        insert into t_user(name,password) values(#{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
     </insert>
 
-    <!-- 删除用户(Remove) -->
-    <delete id="deleteUser" parameterType="int">
-        delete from users where id=#{id}
-    </delete>
-
-    <!-- 修改用户(Update) -->
-    <update id="updateUser" parameterType="User">
-        update users set name=#{name},age=#{age} where
-        id=#{id}
+    <!-- 更新记录 -->
+    <update id="edit" parameterType="User">
+        update t_user set password=#{password,jdbcType=VARCHAR} where id=#{id}
     </update>
 
-    <!-- 查询全部用户 -->
-    <select id="getAllUsers" resultType="User">
-        select * from users
-    </select>
-    
-    
-    <!-- 
-        查询得到男性或女性的数量, 如果传入的是0就女性否则是男性
-     -->
-    <select id="getUserCount" parameterMap="getUserCountMap" statementType="CALLABLE">
-        CALL ges_user_count(?,?)
-    </select>
-    
-    <!--
-        parameterMap.put("sexid", 0);
-        parameterMap.put("usercount", -1);
-     -->
-    <parameterMap type="java.util.Map" id="getUserCountMap">
-        <parameter property="sexid" mode="IN" jdbcType="INTEGER" />
-        <parameter property="usercount" mode="OUT" jdbcType="INTEGER" />
-    </parameterMap>
 </mapper>
