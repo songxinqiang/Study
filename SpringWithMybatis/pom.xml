@@ -40,7 +40,9 @@
         <version.fastjson>1.2.7</version.fastjson>
 
         <prop.depScope>provided</prop.depScope>
-        <!-- <prop.depScope>compile</prop.depScope> -->
+        <!-- 
+        <prop.depScope>compile</prop.depScope>
+         -->
     </properties>
 
     <dependencies>
@@ -86,11 +88,13 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>${version.mybatis}</version>
+            <scope>${prop.depScope}</scope>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>${version.mybatis-spring}</version>
+            <scope>${prop.depScope}</scope>
         </dependency>
 
         <dependency>

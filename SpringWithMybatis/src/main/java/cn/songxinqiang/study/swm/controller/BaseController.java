@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -34,6 +35,8 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import cn.songxinqiang.study.swm.conf.SupportLanguage;
 import cn.songxinqiang.study.swm.model.User;
+import cn.songxinqiang.study.swm.service.ProductService;
+import cn.songxinqiang.study.swm.service.UserService;
 import cn.songxinqiang.tool.SharePager;
 
 /**
@@ -46,16 +49,19 @@ import cn.songxinqiang.tool.SharePager;
  * @author 阿信sxq-2015年12月8日
  *
  */
-public abstract class BaseController implements Serializable{
+public abstract class BaseController implements Serializable {
 
-    private static final long serialVersionUID = -4596456531878457367L;
+    private static final long serialVersionUID = -1753199310966977546L;
+
+    ProductService productService;
+    UserService userService;
 
     int startRow;
     final int PAGE_SIZE = 15;
     final String TOTAL_ROW = "totalRow";
     final String TOTAL_PAGE = "totalPage";
     final String CURRENT_PAGE = "currentPage";
-    
+
     /**
      * session中保存登录用户信息属性名称
      */
@@ -64,7 +70,7 @@ public abstract class BaseController implements Serializable{
      * session中保存用户选择的语言的属性名称
      */
     public static final String SESSION_LANGUAGE = "lan";
-    
+
     /**
      * 已经用于界面显示的日志的ID记录编号，也就是下次界面获取的最小记录编号（不包含），记录在session中，每次获取日志记录都读取，
      * 获取到记录都更新记录值
@@ -253,6 +259,16 @@ public abstract class BaseController implements Serializable{
      */
     public SupportLanguage _getLan(HttpSession session) {
         return SupportLanguage.value(session.getAttribute(SESSION_LANGUAGE).toString());
+    }
+
+    @Resource
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @Resource
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
 }

@@ -16,14 +16,16 @@
  * </pre>
  */
 /*
- * 创建时间：2015年12月8日--下午1:46:58
+ * 创建时间：2015年12月8日--下午4:46:43
  * 作者：阿信sxq(songxinqiang@vip.qq.com)
  */
-package cn.songxinqiang.study.swm.mapper;
+package cn.songxinqiang.study.swm.controller;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import cn.songxinqiang.study.swm.model.Product;
 
@@ -36,19 +38,21 @@ import cn.songxinqiang.study.swm.model.Product;
  * @author 阿信sxq-2015年12月8日
  *
  */
-@Repository
-public interface ProductMapper {
+@Controller
+@RequestMapping(value = "/product")
+public class ProductController extends BaseController {
 
-    int count();
+    private static final long serialVersionUID = -3145219595193235064L;
 
-    List<Product> listAll();
+    @RequestMapping(value = "/list")
+    public ModelAndView listAll() {
+        List<Product> list = productService.list();
 
-    List<Product> listByPage(int start, int size);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("product/list");
+        mv.addObject("pList", list);
 
-    Product find(int id);
-
-    void insert(Product product);
-
-    void update(Product product);
+        return mv;
+    }
 
 }

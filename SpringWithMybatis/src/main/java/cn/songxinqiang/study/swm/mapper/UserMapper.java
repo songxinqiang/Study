@@ -24,6 +24,7 @@ package cn.songxinqiang.study.swm.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import cn.songxinqiang.study.swm.model.User;
 
@@ -36,6 +37,7 @@ import cn.songxinqiang.study.swm.model.User;
  * @author 阿信sxq-2015年12月7日
  *
  */
+@Repository
 public interface UserMapper {
 
     /**
