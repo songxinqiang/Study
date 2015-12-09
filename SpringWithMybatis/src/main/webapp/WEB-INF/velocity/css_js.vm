@@ -2,7 +2,6 @@
 <link href="#springUrl("/css/jquery-ui.css")" rel="stylesheet">
 <script src="#springUrl("/js/jquery.js")"></script>
 <script src="#springUrl("/js/jquery-ui.js")"></script>
-<script src="#springUrl("/js/navi.js")"></script>
 <script src="#springUrl("/js/common.js")"></script>
 <script>
 var content = "#springUrl("")";

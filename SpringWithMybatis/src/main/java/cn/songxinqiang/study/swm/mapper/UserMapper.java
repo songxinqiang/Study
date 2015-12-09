@@ -72,7 +72,7 @@ public interface UserMapper {
     User getUser(@Param("uname")String userName);
 
     /**
-     * 统计指定用户名和密码的用户记录数，其中密码是已经经过了MD5处理的
+     * 通过指定用户名和密码获取用户记录，其中密码是已经经过了MD5处理的
      *
      * @author 阿信sxq-2015年12月8日
      *
@@ -80,8 +80,8 @@ public interface UserMapper {
      *            用户名
      * @param password
      *            密码，已采用MD5进行处理
-     * @return 记录的数目
+     * @return 用户信息记录
      */
-    int login(@Param("uname") String uname, @Param("password") String password);
+    User login(@Param("uname") String uname, @Param("password") String password);
 
 }

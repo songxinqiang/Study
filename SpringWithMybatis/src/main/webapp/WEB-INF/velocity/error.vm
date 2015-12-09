@@ -10,10 +10,10 @@ $(function() {
 </head>
 <body>
     <div class="add_edit_input_wrapper">
-        #springMessage("NOTICE_web_error")
+        "NOTICE_web_error"
     </div>
     <div class="add_edit_input_wrapper">
-        <a href="#springUrl("/system/index")">#springMessage("COMMON_index")</a>
+        <a href="#springUrl("/system/index")">首页</a>
     </div>
     <div class="clear"></div>
     ${exception}

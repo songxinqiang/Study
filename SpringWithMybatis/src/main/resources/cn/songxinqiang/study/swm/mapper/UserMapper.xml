@@ -3,6 +3,10 @@
 <!-- 用户信息记录的DAO层Mapper -->
 <mapper namespace="cn.songxinqiang.study.swm.mapper.UserMapper">
 
+    <select id="login" resultType="User">
+        select * from t_user where name=#{uname} and password=#{password}
+    </select>
+
     <!-- 根据ID查找记录 -->
     <select id="find" parameterType="int" resultType="User">
         select * from t_user where id=#{id}

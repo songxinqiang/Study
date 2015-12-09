@@ -1,13 +1,10 @@
 #set($layout = "menuLayout.vm") 
         <div class="top_nav">
             <ul class="top_menu_left">
-                <li class="left top_menu active_top_menu" id="/menu/pbx" def="/home/devices">#springMessage("MENU_top_pbx")</li>
-                <li class="left top_menu" id="/menu/report" def="/log/page/talk/1">#springMessage("MENU_top_report")</li>
-                <li class="left top_menu" id="/menu/network" def="/network/settings">#springMessage("MENU_top_network")</li>
-                <li class="left top_menu" id="/menu/system" def="/sys/time">#springMessage("MENU_top_system")</li>
-            </ul>
-            <ul class="top_menu_right">
-                <li class="right"><span id="apply_btn">#springMessage("COMMON_apply")</span></li>
+                <li class="left top_menu active_top_menu" id="/menu/pbx" def="/home/devices">菜单1</li>
+                <li class="left top_menu" id="/menu/report" def="/log/page/talk/1">菜单2</li>
+                <li class="left top_menu" id="/menu/network" def="/network/settings">菜单3</li>
+                <li class="left top_menu" id="/menu/system" def="/sys/time">菜单4</li>
             </ul>
         </div>
 
@@ -15,16 +12,16 @@
             <div class="top_main_navi left">
                 <a href="#" class="top_main_navi_hide_btn right"><img src="#springUrl("/images/btn_hide_left.gif")" /></a>
                 <div class="clear"></div>
-                <iframe frameborder="0" width="100%" height="100%" name="menu_frame" id="menu_frame" src="#springUrl("/menu/pbx")"></iframe>
+                <iframe frameborder="0" width="100%" height="100%" name="menu_frame" id="menu_frame">菜单</iframe>
             </div>
             <div class="top_main_navi_show_btn left"></div>
 
-            <iframe frameborder="0" width="100%" height="100%" name="main_frame" id="main_frame" src="#springUrl("/home/devices")"></iframe>
+            <iframe frameborder="0" width="100%" height="100%" name="main_frame" id="main_frame" src="http://www.baidu.com"></iframe>
 
             <div class="top_main_log right">
                 <a href="#" class="top_main_log_hide_btn left"><img src="#springUrl("/images/btn_hide_right.gif")" /></a>
                 <div class="clear"></div>
-                <iframe frameborder="0" width="100%" height="100%" name="log_frame" id="log_frame" src="#springUrl("/log/realtime")"></iframe>
+                <iframe frameborder="0" width="100%" height="100%" name="log_frame" id="log_frame">log</iframe>
             </div>
             <div class="top_main_log_show_btn left"></div>
         </div>

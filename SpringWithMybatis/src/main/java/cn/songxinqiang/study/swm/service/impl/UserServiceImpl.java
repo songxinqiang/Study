@@ -50,17 +50,12 @@ public class UserServiceImpl implements UserService {
     /**
      * {@inheritDoc}<br>
      *
-     * @author 阿信sxq-2015年12月8日
+     * @author 阿信sxq-2015年12月9日
      *
      */
     @Override
     public User login(String name, String password) {
-        int count = userDao.login(name, md5Code.getCode(password));
-        if (count == 1) {
-            return find(name);
-        } else {
-            return null;
-        }
+        return userDao.login(name, md5Code.getCode(password));
     }
 
     /**

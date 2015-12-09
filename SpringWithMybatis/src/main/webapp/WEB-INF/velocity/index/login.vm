@@ -11,8 +11,8 @@ if(top != self){
     }
 }
 var _lan="${lan}";
-var lan_input_uname_pwd='#springMessage("NOTICE_pls_input_username_password")';
-var lan_login_fail='#springMessage("NOTICE_login_uname_not_eq_password")';
+var lan_input_uname_pwd='NOTICE_pls_input_username_password';
+var lan_login_fail='NOTICE_login_uname_not_eq_password';
 $(function(){
     hideWaiting();
     //自适应窗口尺寸变化
@@ -23,7 +23,7 @@ $(function(){
 </head>
 <body>
     <div id="zzbg"></div>
-    <div id="wait_div"><img src="#springUrl("/images/loading.gif")"/>#springMessage("COMMON_waiting")...</div>
+    <div id="wait_div"><img src="#springUrl("/images/loading.gif")"/>COMMON_waiting...</div>
     <img src="#springUrl("/images/login_bg.jpg")" class="login_bg">
     <div class="login_head">
         <img src="#springUrl("/images/logo.jpg")" class="left" /><span class="left">#springMessage("COMMON_system_name")</span>

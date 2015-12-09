@@ -17,10 +17,6 @@ $(function() {
     $('#move').draggable();
     //自适应窗口尺寸变化
     $(window).resize(fitSize);
-    //关闭或者刷新时确认
-/*    $(window).on("beforeunload",function(){
-        return '#springMessage("NOTICE_sure_to_leave")';
-    });*/
     setCheckJob();
 });
 
@@ -34,13 +30,13 @@ $(function() {
         <img src="#springUrl("/images/close.jpg")" id="close_add_edit" class="right"/>
         <iframe id="add_edit_iframe" frameborder="0" width="100%" height="100%"></iframe>
     </div>
-    <div id="wait_div"><img src="#springUrl("/images/loading.gif")"/>#springMessage("COMMON_waiting")...</div>
+    <div id="wait_div"><img src="#springUrl("/images/loading.gif")"/>等待</div>
 
     <div class="main">
         <div class="top_head">
             <img src="#springUrl("/images/logo.jpg")" class="left" />
-            <a class="right" id="logout" href="#springUrl("/system/logout")">#springMessage("COMMON_logout") <img src="#springUrl("/images/logout.jpg")" /></a>
-            <span class="right">#springMessage("COMMON_system_name")</span>
+            <a class="right" id="logout" href="#springUrl("/system/logout")">退出<img src="#springUrl("/images/logout.jpg")" /></a>
+            <span class="right">demo</span>
             <div class="clear"></div>
         </div>
 
