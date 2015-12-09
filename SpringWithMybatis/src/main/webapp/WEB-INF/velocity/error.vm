@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+#parse("css_js.vm")
+<script>
+$(function() {
+    hideWaiting();
+});
+</script>
+</head>
+<body>
+    <div class="add_edit_input_wrapper">
+        #springMessage("NOTICE_web_error")
+    </div>
+    <div class="add_edit_input_wrapper">
+        <a href="#springUrl("/system/index")">#springMessage("COMMON_index")</a>
+    </div>
+    <div class="clear"></div>
+    ${exception}
+    <div class="foot">#parse("foot.vm")</div>
+</body>
+</html>

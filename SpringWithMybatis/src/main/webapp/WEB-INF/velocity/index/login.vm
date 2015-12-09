@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>#springMessage("COMMON_login")</title>
+#parse("css_js.vm")
+<script src="#springUrl("/js/login.js")"></script>
+<script type="text/javascript">
+if(top != self){
+    if(top.location != self.location) {
+        top.location = self.location;
+    }
+}
+var _lan="${lan}";
+var lan_input_uname_pwd='#springMessage("NOTICE_pls_input_username_password")';
+var lan_login_fail='#springMessage("NOTICE_login_uname_not_eq_password")';
+$(function(){
+    hideWaiting();
+    //自适应窗口尺寸变化
+    fitSize();
+    $(window).resize(fitSize);
+});
+</script>
+</head>
+<body>
+    <div id="zzbg"></div>
+    <div id="wait_div"><img src="#springUrl("/images/loading.gif")"/>#springMessage("COMMON_waiting")...</div>
+    <img src="#springUrl("/images/login_bg.jpg")" class="login_bg">
+    <div class="login_head">
+        <img src="#springUrl("/images/logo.jpg")" class="left" /><span class="left">#springMessage("COMMON_system_name")</span>
+        <div class="clear"></div>
+    </div>
+    <div class="login_input_wrapper right">
+        <div class="login_title">#springMessage("COMMON_login")</div>
+        <div class="login_input">
+            <div>
+                <div class="login_input_name">#springMessage("COMMON_login_name")</div>
+                <input type="text" id="uname" size="25" class="login_form_input">
+            </div>
+            <div>
+                <div class="login_input_name">#springMessage("COMMON_login_password")</div>
+                <input type="password" id="password" size="25" class="login_form_input">
+            </div>
+            <div>
+                <div class="login_input_name">#springMessage("COMMON_language")</div>
+                <select class="login_form_select">
+                    <option value="lan_zh_CN">中文</option>
+                    <option value="lan_en_US">English</option>
+                </select>
+            </div>
+            <p class="login_submit_p">
+                <input type="button" id="login" value='#springMessage("COMMON_login")' class="btn_without_img login_btn">
+            </p>
+        </div>
+    </div>
+    <div class="foot">#parse("foot.vm")</div>
+</body>
+</html>

@@ -38,6 +38,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/user")
 public class UserController extends BaseController {
 
+    private static final long serialVersionUID = 3286813983404955731L;
+
     @RequestMapping(value = { "/", "/*" })
     public String mainPage() {
         return "user/main";

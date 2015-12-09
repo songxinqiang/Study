@@ -44,7 +44,7 @@ public class SystemController extends BaseController {
     
     @RequestMapping(value="/login",method=RequestMethod.GET)
     public String toLogin(){
-        return "";
+        return "index/login";
     }
 
 }

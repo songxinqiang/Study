@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>#springMessage("COMMON_system_name")</title>
+#parse("css_js.vm")
+<script src="#springUrl("/js/navi.js")"></script>
+<script>
+if(top != self){
+    if(top.location != self.location) {
+        top.location = self.location;
+    }
+}
+
+$(function() {
+    var shouldApply=false;
+    fitSize();
+    $('#move').draggable();
+    //自适应窗口尺寸变化
+    $(window).resize(fitSize);
+    //关闭或者刷新时确认
+/*    $(window).on("beforeunload",function(){
+        return '#springMessage("NOTICE_sure_to_leave")';
+    });*/
+    setCheckJob();
+});
+
+</script>
+</head>
+
+<body>
+    <div id="zzbg"></div>
+    <div id="move" class="add_edit_wrapper" style="display: none">
+        <div class="add_edit_title"></div>
+        <img src="#springUrl("/images/close.jpg")" id="close_add_edit" class="right"/>
+        <iframe id="add_edit_iframe" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+    <div id="wait_div"><img src="#springUrl("/images/loading.gif")"/>#springMessage("COMMON_waiting")...</div>
+
+    <div class="main">
+        <div class="top_head">
+            <img src="#springUrl("/images/logo.jpg")" class="left" />
+            <a class="right" id="logout" href="#springUrl("/system/logout")">#springMessage("COMMON_logout") <img src="#springUrl("/images/logout.jpg")" /></a>
+            <span class="right">#springMessage("COMMON_system_name")</span>
+            <div class="clear"></div>
+        </div>
+
+        <div>$screen_content</div>
+    </div>
+    <div class="foot">#parse("foot.vm")</div>
+</body>
+</html>

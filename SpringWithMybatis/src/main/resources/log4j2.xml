@@ -7,6 +7,7 @@
         <property name="BACKUP_HOME">{LOG_HOME}/backup</property>
         <property name="STAT_NAME">stat</property>
         <property name="SERVER_NAME">global</property>
+        <property name="LOG_LEVEL">warn</property>
     </properties>
 
     <appenders>
@@ -34,11 +35,10 @@
 
     <loggers>
         <!-- 3rdparty Loggers -->
-        <logger name="org.springframework.core" level="warn" />
-        <logger name="org.springframework.beans" level="warn" />
-        <logger name="org.springframework.context" level="warn" />
-        <logger name="org.springframework.web" level="warn" />
-        <logger name="org.apache.http" level="warn" />
+        <logger name="org.springframework.core" level="${LOG_LEVEL}" />
+        <logger name="org.springframework.beans" level="${LOG_LEVEL}" />
+        <logger name="org.springframework.context" level="${LOG_LEVEL}" />
+        <logger name="org.springframework.web" level="${LOG_LEVEL}" />
         <!-- Root Logger -->
         <root level="WARN">
             <appender-ref ref="DevLog" />
