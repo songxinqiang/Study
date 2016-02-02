@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -12,11 +11,35 @@
     <packaging>war</packaging>
 
     <name>Velocity Study</name>
+    <description>velocity项目</description>
+    <url>https://git.oschina.net/songxinqiang/Study/tree/master/VelocityStudy</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>阿信sxq</name>
+            <email>songxinqiang@vip.qq.com</email>
+            <url>http://my.oschina.net/songxinqiang/</url>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@git.oschina.net:songxinqiang/Study.git</connection>
+        <developerConnection>scm:git:git@git.oschina.net:songxinqiang/Study.git</developerConnection>
+        <url>https://git.oschina.net/songxinqiang/Study</url>
+    </scm>
 
     <properties>
-        <version.spring>4.1.8.RELEASE</version.spring>
-        <version.aspectj>1.8.7</version.aspectj>
-        <version.log4j>2.4.1</version.log4j>
+        <version.spring>4.2.4.RELEASE</version.spring>
+        <version.aspectj>1.8.8</version.aspectj>
+        <version.log4j>2.5</version.log4j>
 
         <version.velocity>1.7</version.velocity>
         <version.velocity-tools>2.0</version.velocity-tools>
@@ -31,12 +54,10 @@
         <version.sslext>1.10-4</version.sslext>
         <version.xml-apis>1.4.01</version.xml-apis>
 
-        <version.tomcat>8.0.28</version.tomcat>
+        <version.tomcat>8.0.30</version.tomcat>
 
         <prop.depScope>provided</prop.depScope>
-        <!-- 
-        <prop.depScope>compile</prop.depScope>
-         -->
+        <!-- <prop.depScope>compile</prop.depScope> -->
     </properties>
 
     <dependencies>
